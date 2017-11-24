@@ -2,5 +2,12 @@ language: rust
 rust:
   - 1.21.0
 cache: cargo
+
+addons:
+  apt:
+    packages:
+      - build-essential
+      - libudev-dev
+      
 script:
   - cargo build --release
