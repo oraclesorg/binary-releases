@@ -13,7 +13,7 @@ jobs:
           command: apt install curl git build-essential pkg-config libssl-dev libudev-dev -y
       - run:
           name: Install Rust
-          command: curl -sSf https://static.rust-lang.org/rustup.sh | sh
+          command: curl https://sh.rustup.rs -sSf | sh -y
       - run:
           name: Build parity
           command: cargo build --release
