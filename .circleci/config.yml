@@ -6,14 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Rust
-          command: curl https://sh.rustup.rs -sSf | sh
-      - run:
           name: Update repo
           command: apt update
       - run:
           name: Install deps
-          command: apt install pkg-config libssl-dev libudev-dev -y
+          command: apt install curl git build-essential pkg-config libssl-dev libudev-dev -y
+      - run:
+          name: Install Rust
+          command: curl https://sh.rustup.rs -sSf | sh
       - run:
           name: Build parity
           command: cargo build --release
