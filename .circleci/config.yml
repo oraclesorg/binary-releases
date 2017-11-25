@@ -1,1 +1,16 @@
-#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: rust
+    steps:
+      - checkout
+      - run:
+          name: Update repo
+          command: apt update
+      - run:
+          name: Install deps
+          command: apt update && apt install pkg-config libssl-dev libudev-dev
+      - run:
+          name: Build parity
+          command: cargo build --release
