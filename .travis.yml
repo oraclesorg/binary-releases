@@ -10,4 +10,4 @@ addons:
       - libudev-dev
       
 script:
-  - travis_wait 60 cargo build --release
+  - travis_wait 90 cargo build --release
