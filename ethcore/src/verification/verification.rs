@@ -126,7 +126,7 @@ pub fn verify_block_family(header: &Header, parent: &Header, engine: &EthEngine,
 		None => return Ok(()),
 	};
 
-	verify_uncles(header, bytes, bc, engine)?;
+	/// verify_uncles(header, bytes, bc, engine)?;
 
 	for transaction in txs {
 		engine.machine().verify_transaction(transaction, header, client)?;
