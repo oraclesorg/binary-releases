@@ -1,13 +1,19 @@
 language: rust
 rust:
-  - 1.21.0
+- 1.21.0
 cache: cargo
-
 addons:
   apt:
     packages:
-      - build-essential
-      - libudev-dev
-      
+    - build-essential
+    - libudev-dev
 script:
-  - travis_wait 100 cargo build --release
+- travis_wait 100 cargo build --release
+deploy:
+  provider: releases
+  api_key:
+    secure: Za787AVZNEB+wY6icVze/R8VnSF+zNUrEyklWagsjs3F+TJLoSWB5LKajs8GfUklKxYyUHrxnGEi2k9jmSLiJHbBHi7UFaUP2+nzBl37kexH1QjXm7h5wAj00TJqNG0E3eqOmvTjGmbf+3qCldzqWw+AZPMmKIHbHP0Jh5s8XA9eLfA9fxk/2XVz5RF3g2IFYdRTDBSze2G+zPWXRcRbsd5Ge32GoXLIMLXNj87JRQ+WZPnm4ZwtLKhOlt9+32IAsRKLB7UYE9gzXOx9gGG6ExSamhHegjlKuRbE2f7dLFqDAEiKIGScRX7nthuunw7CyV3j9fqEWYKX2aJjEUgqzka8qghHKtbne1rOgzgIGbcW3qdxEs6kHhUZiyWvJWVs1gZSVOgSXDrXNLIeQ3soHwNwAfA+SqPEheKgTeizhhzCGiQGME9bMpgpcK7Wkw61W0Zgxto7SSONCyMdkZTfE+WpNpa9IpYDvStYYSkENCPhv5ju1rPsGLuyg4PK1Uo3ah+MegVqdBT31VfNmxIMaPAkq49pAlGkHfYQub5IQ1o49z+2Bl7QSZE1Isx6waDmCVUC1F8IbOTySNOSp9ViiYuZp7NP/zRe1DGr3K4AKwtYhhQikvmvBjAbJlDamvfa5WPOKU9oeRht0cbkyZXybNycuq8ZiEQZqq9Q+tHwyyE=
+  file: target/release/parity
+  on:
+    repo: oraclesorg/binary-releases
+    branch: heads/1.8.3
